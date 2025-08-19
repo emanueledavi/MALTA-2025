@@ -695,7 +695,7 @@ body.no-scroll {
         display: block;
         position: absolute;
         top: 2rem;
-        right: 20.5rem; /* Modifica questa riga per spostare il pulsante */
+        left: 1.5rem; /* Modifica questa riga per spostare il pulsante */
         background: none;
         border: none;
         color: white;
