@@ -9,15 +9,25 @@
 </head>
 <body>
     <header class="header">
+    <div class="header-content">
         <h1 class="app-title">Malta Trip</h1>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="itinerari.html">Itinerari</a></li>
-            <li><a href="organizzazione.html">Organizzazione</a></li>
-            <li><a href="documenti.html">Documenti</a></li>
-            <li><a href="informazioni-utili.html">Info Utili</a></li>
-        </ul>
-    </header>
+        <button class="hamburger-menu" aria-label="Apri menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav class="nav-links-container">
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="itinerari.html">Itinerari</a></li>
+                <li><a href="organizzazione.html">Organizzazione</a></li>
+                <li><a href="documenti.html">Documenti</a></li>
+                <li><a href="informazioni-utili.html">Info Utili</a></li>
+            </ul>
+            <button class="close-menu" aria-label="Chiudi menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </nav>
+    </div>
+</header>
 
     <main class="container">
         <section class="page-section">
@@ -33,5 +43,37 @@
     <footer class="footer">
         <p>&copy; 2025 Malta Trip App</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerBtn = document.querySelector('.hamburger-menu');
+    const closeBtn = document.querySelector('.close-menu');
+    const navMenu = document.querySelector('.nav-links-container');
+    const body = document.body;
+
+    // Funzione per aprire il menu
+    function openMenu() {
+        navMenu.classList.add('open');
+        body.classList.add('no-scroll');
+        hamburgerBtn.style.display = 'none'; // Nasconde il pulsante hamburger
+    }
+
+    // Funzione per chiudere il menu
+    function closeMenu() {
+        navMenu.classList.remove('open');
+        body.classList.remove('no-scroll');
+        hamburgerBtn.style.display = 'block'; // Mostra il pulsante hamburger
+    }
+
+    // Aggiungi event listener ai pulsanti
+    if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', openMenu);
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeMenu);
+    }
+});
+    </script>
 </body>
 </html>

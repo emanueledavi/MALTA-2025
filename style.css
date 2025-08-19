@@ -19,8 +19,12 @@
 
 html, body {
     height: 100%;
+    width: 100%;
+    /* Previene lo scorrimento orizzontale su tutta la pagina */
+    overflow-x: hidden;
 }
 
+/* Modifiche per nascondere la barra di scorrimento senza influire sul layout */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -31,6 +35,21 @@ body {
     scroll-behavior: smooth;
     display: flex;
     flex-direction: column;
+    /* Nasconde la barra di scorrimento su Firefox */
+    scrollbar-width: none;
+    /* Nasconde la barra di scorrimento su Edge e IE */
+    -ms-overflow-style: none;
+}
+
+/* Nasconde la barra di scorrimento su browser WebKit (Chrome, Safari) */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Aggiungi questa classe al body con JavaScript quando il menu è aperto */
+body.no-scroll {
+    overflow: hidden;
 }
 
 .container {
@@ -52,7 +71,6 @@ body {
     border-radius: 0 0 20px 20px;
 }
 
-/* Nuove regole per il contenuto dell'header */
 .header-content {
     max-width: 900px; /* Stessa larghezza del .container */
     margin: 0 auto;
@@ -66,6 +84,11 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
     margin: 0;
+}
+
+.nav-links-container {
+    display: flex;
+    align-items: center;
 }
 
 .nav-links {
@@ -101,6 +124,11 @@ body {
 .nav-links a.active::after,
 .nav-links a:hover::after {
     width: 100%;
+}
+
+/* Nasconde i pulsanti su schermi grandi */
+.hamburger-menu, .close-menu {
+    display: none;
 }
 
 /* Sezioni e Carte */
@@ -313,7 +341,6 @@ body {
     transform: translateY(-5px);
 }
 
-/* Pannello di sinistra con immagine e data */
 .itinerary-image-panel {
     display: flex;
     flex-direction: column;
@@ -348,7 +375,6 @@ body {
     margin-top: 5px;
 }
 
-/* Pannello di destra con i contenuti del giorno */
 .itinerary-content-panel {
     flex-grow: 1;
     padding: 2rem;
@@ -384,98 +410,6 @@ body {
     left: 0;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    .app-title {
-        font-size: 2rem;
-    }
-    
-    .nav-links {
-        gap: 1rem;
-        flex-wrap: wrap;
-    }
-    .nav-links a {
-        font-size: 0.9rem;
-    }
-    .info-hub-buttons .btn {
-        font-size: 1rem;
-        padding: 0.8rem;
-    }
-    .countdown-container {
-        justify-content: space-between;
-        gap: 5px;
-    }
-    .countdown-card {
-        min-width: 60px;
-        padding: 10px;
-    }
-    .countdown-number {
-        font-size: 2rem;
-    }
-    .countdown-label {
-        font-size: 0.7rem;
-    }
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .itinerary-day-card {
-        flex-direction: column; /* Imposta la colonna per schermi piccoli */
-    }
-
-    .itinerary-image-panel {
-        width: 100%; /* Occupa tutta la larghezza in modalità colonna */
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 10px;
-        border-right: none;
-        border-bottom: 5px solid var(--highlight-border); /* Aggiunge un bordo inferiore */
-    }
-
-    .itinerary-image-panel img {
-        height: 80px;
-        width: 80px;
-    }
-
-    .itinerary-content-panel {
-        padding: 1rem;
-    }
-    
-    .header-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .nav-links {
-        margin-top: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-
-/* Regole per schermi ancora più piccoli (smartphone) */
-@media (max-width: 480px) {
-    .countdown-number {
-        font-size: 1.5rem;
-    }
-    .countdown-label {
-        font-size: 0.6rem;
-    }
-
-    .itinerary-image-panel img {
-        height: 60px;
-        width: 60px;
-    }
-
-    .itinerary-image-panel .day-label {
-        font-size: 1rem;
-    }
-
-    .itinerary-image-panel .date-label {
-        font-size: 0.7rem;
-    }
-}
-
 /* Stile per i pulsanti dell'itinerario - Sezione .itinerary-buttons-container */
 .itinerary-buttons-container {
     display: flex;
@@ -486,37 +420,12 @@ body {
     margin-bottom: 2rem;
 }
 
-/* Stile per i singoli pulsanti dell'itinerario */
 .itinerary-btn {
     flex: 1 1 auto;
     max-width: 300px;
     font-size: 1.2rem;
     padding: 1rem;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-/* Regole per schermi più piccoli, ad es. 768px */
-@media (max-width: 768px) {
-    .itinerary-buttons-container {
-        justify-content: space-around;
-        gap: 10px;
-    }
-    .itinerary-btn {
-        font-size: 1rem;
-        padding: 0.8rem;
-    }
-}
-
-/* Regole per schermi ancora più piccoli (smartphone), ad es. 480px */
-@media (max-width: 480px) {
-    .itinerary-buttons-container {
-        justify-content: center;
-        gap: 5px;
-    }
-    .itinerary-btn {
-        font-size: 0.9rem;
-        padding: 0.7rem;
-    }
 }
 
 /* Stili per la navigazione tra gli itinerari */
@@ -546,7 +455,6 @@ body {
     margin-left: auto; /* Allinea a destra */
 }
 
-
 /* Stili per una card meteo moderna e dinamica */
 .weather-card {
     background: linear-gradient(145deg, var(--background-light) 0%, #ffffff 100%);
@@ -573,7 +481,6 @@ body {
     margin-top: 1rem;
 }
 
-/* Stili per il contenitore dell'icona del meteo */
 .weather-icon-container {
     width: 150px;
     height: 150px;
@@ -585,14 +492,12 @@ body {
     margin-bottom: 1rem;
 }
 
-/* Stili per l'icona del meteo */
 .weather-icon {
     width: 120px;
     height: 120px;
     filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
 }
 
-/* Stili per le classi di animazione */
 @keyframes spin {
     from {
         transform: rotate(0deg);
@@ -632,7 +537,6 @@ body {
     animation: bounce 2s infinite;
 }
 
-/* Sfondi colorati per il contenitore dell'icona */
 .weather-icon-container.sun-bg {
     background-color: rgba(255, 204, 0, 0.2);
 }
@@ -645,7 +549,6 @@ body {
     background-color: rgba(100, 149, 237, 0.2);
 }
 
-/* Stili per il testo del meteo */
 .weather-temperature {
     font-family: 'Playfair Display', serif;
     font-size: 6rem;
@@ -685,4 +588,155 @@ body {
     color: var(--primary-color);
     margin-right: 8px;
     font-size: 1.3rem;
+}
+
+/* Media Query per dispositivi mobili (schermi piccoli) */
+@media (max-width: 768px) {
+    .app-title {
+        font-size: 2rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+    .info-hub-buttons .btn {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+    .countdown-container {
+        justify-content: space-between;
+        gap: 5px;
+    }
+    .countdown-card {
+        min-width: 60px;
+        padding: 10px;
+    }
+    .countdown-number {
+        font-size: 2rem;
+    }
+    .countdown-label {
+        font-size: 0.7rem;
+    }
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    .itinerary-day-card {
+        flex-direction: column;
+    }
+    .itinerary-image-panel {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px;
+        border-right: none;
+        border-bottom: 5px solid var(--highlight-border);
+    }
+    .itinerary-image-panel img {
+        height: 80px;
+        width: 80px;
+    }
+    .itinerary-content-panel {
+        padding: 1rem;
+    }
+    .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav-links-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--primary-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(-100%);
+        transition: transform 0.5s ease-in-out;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+    .nav-links-container.open {
+        transform: translateX(0);
+        /* Nuova riga aggiunta per bloccare lo scorrimento del menu */
+        overflow: hidden; 
+    }
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+    .nav-links li {
+        margin: 1.5rem 0;
+    }
+    .nav-links li a {
+        font-size: 2rem;
+    }
+    .hamburger-menu {
+        display: block;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    .close-menu {
+        display: none;
+    }
+    .nav-links-container.open .close-menu {
+        display: block;
+        position: absolute;
+        top: 2rem;
+        right: 42.5rem; /* Modifica questa riga per spostare il pulsante */
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        z-index: 1002;
+    }
+    .itinerary-buttons-container {
+        justify-content: space-around;
+        gap: 10px;
+    }
+    .itinerary-btn {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+}
+
+/* Regole per schermi ancora più piccoli (smartphone) */
+@media (max-width: 480px) {
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+    .countdown-label {
+        font-size: 0.6rem;
+    }
+    .itinerary-image-panel img {
+        height: 60px;
+        width: 60px;
+    }
+    .itinerary-image-panel .day-label {
+        font-size: 1rem;
+    }
+    .itinerary-image-panel .date-label {
+        font-size: 0.7rem;
+    }
+    .itinerary-buttons-container {
+        justify-content: center;
+        gap: 5px;
+    }
+    .itinerary-btn {
+        font-size: 0.9rem;
+        padding: 0.7rem;
+    }
 }

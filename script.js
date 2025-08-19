@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const countdownContainer = document.querySelector('.countdown-container');
         let countdownIntervalId = null;
 
+        if (!countdownContainer) {
+            return; // Esci se non sei sulla homepage
+        }
+
         countdownIntervalId = setInterval(function() {
             const now = new Date().getTime();
             const distance = tripDate - now;
@@ -35,6 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const lon = 14.5057; // Longitudine di Sliema
         const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=it`;
         const weatherContainer = document.getElementById('weather-info');
+
+        if (!weatherContainer) {
+            return; // Esci se non sei sulla homepage
+        }
 
         fetch(weatherUrl)
             .then(response => {
@@ -81,8 +89,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 weatherContainer.innerHTML = `<p>Errore nel caricamento del meteo.</p>`;
             });
     }
+    
+    // Funzione per il menu responsive
+    function setupMobileMenu() {
+        const hamburgerBtn = document.querySelector('.hamburger-menu');
+        const closeBtn = document.querySelector('.close-menu');
+        const navContainer = document.querySelector('.nav-links-container');
+        const body = document.body;
 
-    // Avvia le funzionalità quando la pagina è pronta
+        if (hamburgerBtn && navContainer && closeBtn) {
+            hamburgerBtn.addEventListener('click', () => {
+                navContainer.classList.add('open');
+                body.classList.add('no-scroll');
+            });
+
+            closeBtn.addEventListener('click', () => {
+                navContainer.classList.remove('open');
+                body.classList.remove('no-scroll');
+            });
+        }
+    }
+
+    // Avvia tutte le funzionalità quando la pagina è pronta
     setupCountdown();
     loadWeather();
+    setupMobileMenu();
 });
