@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meteo Dettagliato a Malta</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1 class="app-title">Malta Trip</h1>
+            <button class="hamburger-menu" aria-label="Apri menu">☰</button>
+            <div class="nav-links-container">
+                <button class="close-menu" aria-label="Chiudi menu">X</button>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="itinerary.html" class="nav-link">Itinerari</a></li>
+                    <li><a href="organization.html" class="nav-link">Organizzazione</a></li>
+                    <li><a href="documents.html" class="nav-link">Documenti</a></li>
+                    <li><a href="info.html" class="nav-link">Info Utili</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="weather-details-section" class="page-section">
+            <h2 class="section-title">Previsioni Dettagliate per Malta</h2>
+            
+            <a href="index.html" class="btn back-btn" style="text-decoration: none;">&larr; Torna alla Home</a>
+
+            <div id="weather-details-container" class="card">
+                <p>Caricamento delle previsioni...</p>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Malta Trip App</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

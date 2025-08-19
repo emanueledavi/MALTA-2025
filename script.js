@@ -31,63 +31,87 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
         }, 1000);
     }
+    
+    // Funzioni per il meteo
+    const API_KEY = '53334284b91f30ed3191d0ddfd120800'; // ⚠️ Assicurati che sia la tua chiave
+    const city = 'Valletta, MT';
 
-    // Funzione per caricare i dati meteo
-    function loadWeather() {
-        const apiKey = '53334284b91f30ed3191d0ddfd120800';
-        const lat = 35.9122; // Latitudine di Sliema
-        const lon = 14.5057; // Longitudine di Sliema
-        const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=it`;
-        const weatherContainer = document.getElementById('weather-info');
-
-        if (!weatherContainer) {
-            return; // Esci se non sei sulla homepage
-        }
-
-        fetch(weatherUrl)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Impossibile recuperare i dati meteo.');
-                }
-                return response.json();
-            })
-            .then(data => {
-                const temp = Math.round(data.main.temp);
+    function updateWeatherUI(data, isFullPage) {
+        const weatherCard = document.getElementById('weather-card');
+        const weatherDetailsContainer = document.getElementById('weather-details-container');
+        
+        if (isFullPage) {
+            if (weatherDetailsContainer) {
+                const detailsContent = `
+                    <h3 class="card-title">Previsioni Dettagliate</h3>
+                    <p><strong>Condizioni:</strong> ${data.weather[0].description}</p>
+                    <p><strong>Temperatura:</strong> ${Math.round(data.main.temp)}°C</p>
+                    <p><strong>Umidità:</strong> ${data.main.humidity}%</p>
+                    <p><strong>Velocità Vento:</strong> ${Math.round(data.wind.speed * 3.6)} km/h</p>
+                    <p><strong>Pressione:</strong> ${data.main.pressure} hPa</p>
+                    <p><strong>Visibilità:</strong> ${data.visibility / 1000} km</p>
+                    <p><strong>Alba:</strong> ${new Date(data.sys.sunrise * 1000).toLocaleTimeString('it-IT')}</p>
+                    <p><strong>Tramonto:</strong> ${new Date(data.sys.sunset * 1000).toLocaleTimeString('it-IT')}</p>
+                `;
+                weatherDetailsContainer.innerHTML = detailsContent;
+            }
+        } else {
+            if (weatherCard) {
+                const temperature = Math.round(data.main.temp);
                 const description = data.weather[0].description;
-                const iconCode = data.weather[0].icon;
                 const humidity = data.main.humidity;
                 const windSpeed = Math.round(data.wind.speed * 3.6);
+                const iconCode = data.weather[0].icon;
+                const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@4x.png`;
 
-                let animationClass = '';
-                let colorClass = '';
-
-                if (iconCode.startsWith('01')) { // Sole
-                    animationClass = 'sun-animation';
-                    colorClass = 'sun-bg';
-                } else if (iconCode.startsWith('02') || iconCode.startsWith('03') || iconCode.startsWith('04')) { // Nuvole
-                    animationClass = 'clouds-animation';
-                    colorClass = 'clouds-bg';
-                } else if (iconCode.startsWith('09') || iconCode.startsWith('10')) { // Pioggia
-                    animationClass = 'rain-animation';
-                    colorClass = 'rain-bg';
-                }
-
-                weatherContainer.innerHTML = `
-                    <div class="weather-icon-container ${colorClass}">
-                        <img src="https://openweathermap.org/img/wn/${iconCode}@4x.png" alt="Icona meteo" class="weather-icon ${animationClass}">
-                    </div>
-                    <p class="weather-temperature">${temp}°C</p>
-                    <p class="weather-description">${description}</p>
-                    <div class="weather-details">
-                        <p><i class="fas fa-tint"></i> Umidità: ${humidity}%</p>
-                        <p><i class="fas fa-wind"></i> Vento: ${windSpeed} km/h</p>
+                const homeContent = `
+                    <div class="weather-content">
+                        <div class="weather-icon-container">
+                            <img src="${iconUrl}" alt="${description}" class="weather-icon">
+                        </div>
+                        <p class="weather-temperature">${temperature}°C</p>
+                        <p class="weather-description">${description}</p>
+                        <div class="weather-details">
+                            <p><i class="fas fa-tint"></i> Umidità: ${humidity}%</p>
+                            <p><i class="fas fa-wind"></i> Vento: ${windSpeed} km/h</p>
+                        </div>
                     </div>
                 `;
-            })
-            .catch(error => {
-                console.error("Errore nel recupero del meteo:", error);
-                weatherContainer.innerHTML = `<p>Errore nel caricamento del meteo.</p>`;
-            });
+                weatherCard.innerHTML = homeContent;
+                
+                // Aggiungi l'animazione corretta
+                const weatherMain = data.weather[0].main.toLowerCase();
+                const iconImg = weatherCard.querySelector('.weather-icon');
+                if (iconImg) {
+                    if (weatherMain.includes('clear')) {
+                        iconImg.classList.add('sun-animation');
+                    } else if (weatherMain.includes('clouds')) {
+                        iconImg.classList.add('clouds-animation');
+                    } else if (weatherMain.includes('rain') || weatherMain.includes('drizzle')) {
+                        iconImg.classList.add('rain-animation');
+                    }
+                }
+            }
+        }
+    }
+
+    async function fetchWeather(isFullPage = false) {
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=it`;
+        
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error('Impossibile recuperare i dati del meteo.');
+            }
+            const data = await response.json();
+            updateWeatherUI(data, isFullPage);
+        } catch (error) {
+            console.error("Errore nel recupero del meteo:", error);
+            const container = isFullPage ? document.getElementById('weather-details-container') : document.getElementById('weather-card');
+            if (container) {
+                container.innerHTML = `<p class="error-message">Errore nel caricamento del meteo.</p>`;
+            }
+        }
     }
     
     // Funzione per il menu responsive
@@ -110,8 +134,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Controlla se l'elemento 'gallery-grid' esiste prima di avviare la funzione
+    const galleryGrid = document.getElementById('gallery-grid');
+    if (galleryGrid) {
+        // Aggiungi qui la tua funzione per la galleria, ad esempio:
+        // setupGallery();
+    }
+
+
     // Avvia tutte le funzionalità quando la pagina è pronta
     setupCountdown();
-    loadWeather();
     setupMobileMenu();
+    
+    // Controlla la pagina corrente e avvia la funzione meteo appropriata
+    const isMeteoPage = window.location.pathname.endsWith('meteo.html');
+    if (isMeteoPage) {
+        fetchWeather(true);
+    } else {
+        fetchWeather();
+    }
 });
