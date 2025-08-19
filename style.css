@@ -694,8 +694,8 @@ body.no-scroll {
     .nav-links-container.open .close-menu {
         display: block;
         position: absolute;
-        top: 2rem;
-        left: 1.5rem; /* Modifica questa riga per spostare il pulsante */
+        top: 1.5rem; /* Posizionamento dall'alto */
+        right: 1.5rem; /* Posizionamento dal bordo destro */
         background: none;
         border: none;
         color: white;

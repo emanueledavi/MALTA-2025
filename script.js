@@ -115,24 +115,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Funzione per il menu responsive
-    function setupMobileMenu() {
-        const hamburgerBtn = document.querySelector('.hamburger-menu');
-        const closeBtn = document.querySelector('.close-menu');
-        const navContainer = document.querySelector('.nav-links-container');
-        const body = document.body;
+// Funzione per il menu responsive
+function setupMobileMenu() {
+    const hamburgerBtn = document.querySelector('.hamburger-menu');
+    const closeBtn = document.querySelector('.close-menu');
+    const navContainer = document.querySelector('.nav-links-container');
+    const body = document.body;
 
-        if (hamburgerBtn && navContainer && closeBtn) {
-            hamburgerBtn.addEventListener('click', () => {
-                navContainer.classList.add('open');
-                body.classList.add('no-scroll');
-            });
+    if (hamburgerBtn && navContainer && closeBtn) {
+        hamburgerBtn.addEventListener('click', () => {
+            navContainer.classList.add('open');
+            body.classList.add('no-scroll');
+            hamburgerBtn.style.display = 'none'; // Nasconde il pulsante hamburger
+            closeBtn.style.display = 'block'; // Mostra il pulsante di chiusura
+        });
 
-            closeBtn.addEventListener('click', () => {
-                navContainer.classList.remove('open');
-                body.classList.remove('no-scroll');
-            });
-        }
+        closeBtn.addEventListener('click', () => {
+            navContainer.classList.remove('open');
+            body.classList.remove('no-scroll');
+            hamburgerBtn.style.display = 'block'; // Mostra il pulsante hamburger
+            closeBtn.style.display = 'none'; // Nasconde il pulsante di chiusura
+        });
     }
+}
 
     // Controlla se l'elemento 'gallery-grid' esiste prima di avviare la funzione
     const galleryGrid = document.getElementById('gallery-grid');
