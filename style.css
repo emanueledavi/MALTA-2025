@@ -695,7 +695,7 @@ body.no-scroll {
         display: block;
         position: absolute;
         top: 2rem;
-        right: 42.5rem; /* Modifica questa riga per spostare il pulsante */
+        right: 20.5rem; /* Modifica questa riga per spostare il pulsante */
         background: none;
         border: none;
         color: white;
@@ -739,4 +739,5 @@ body.no-scroll {
         font-size: 0.9rem;
         padding: 0.7rem;
     }
+
 }
