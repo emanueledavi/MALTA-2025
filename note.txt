@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itinerari di Viaggio - Malta Trip</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .itinerary-buttons-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+        .itinerary-btn {
+            flex: 1 1 auto;
+            max-width: 300px;
+            font-size: 1.2rem;
+            padding: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 768px) {
+            .itinerary-buttons-container {
+                justify-content: space-around;
+                gap: 10px;
+            }
+            .itinerary-btn {
+                font-size: 1rem;
+                padding: 0.8rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .itinerary-buttons-container {
+                justify-content: center;
+                gap: 5px;
+            }
+            .itinerary-btn {
+                font-size: 0.9rem;
+                padding: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-content">
+        <h1 class="app-title">Malta Trip</h1>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="itinerari.html" class="active">Itinerari</a></li>
+                <li><a href="organizzazione.html">Organizzazione</a></li>
+                <li><a href="documenti.html">Documenti</a></li>
+                <li><a href="informazioni-utili.html">Info Utili</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="page-section" id="itinerary-intro">
+            <h2 class="section-title">Itinerari per il tuo viaggio</h2>
+            <p class="section-subtitle">
+                Esplora le diverse sfaccettature di Malta, Gozo e Comino. Scegli il tuo percorso ideale!
+            </p>
+            <div class="itinerary-buttons-container">
+                <button class="btn itinerary-btn" data-itinerary="itinerary-1">
+                    <i class="fas fa-archway"></i> Itinerario 1: Storia e Cultura
+                </button>
+                <button class="btn itinerary-btn" data-itinerary="itinerary-2">
+                    <i class="fas fa-hiking"></i> Itinerario 2: Avventura e Natura
+                </button>
+                <button class="btn itinerary-btn" data-itinerary="itinerary-3">
+                    <i class="fas fa-sun"></i> Itinerario 3: Misto Relax e Cultura
+                </button>
+            </div>
+        </section>
+
+        <section class="page-section" id="itinerary-details" style="display: none;">
+            <button class="btn back-btn" onclick="showIntro()"><i class="fas fa-arrow-left"></i> Torna agli itinerari</button>
+            <div id="itinerary-content">
+                </div>
+        </section>
+
+        <div id="itinerary-1-content" style="display: none;">
+            <div class="card itinerary-card">
+                <h3 class="itinerary-title">Itinerario 1: Storia, Cultura e Città 🏛️</h3>
+                <p class="itinerary-description">Un percorso pensato per chi ama esplorare le città e i siti storici.</p>
+
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="" alt="Foto Giorno 1">
+                        <span class="day-label">Giorno 1</span>
+                        <span class="date-label">Lunedì 8 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Arrivo a La Valletta</h4>
+                        <ul>
+                            <li>Mattina/Pomeriggio: Arrivo all'aeroporto di Luqa (MLA), trasferimento e check-in.</li>
+                            <li>Sera: Prima passeggiata nel centro storico e cena in un ristorante tipico.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="URL_FOTO_GIORNO_2.jpg" alt="Foto Giorno 2">
+                        <span class="day-label">Giorno 2</span>
+                        <span class="date-label">Martedì 9 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>La Valletta e le Tre Città</h4>
+                        <ul>
+                            <li>Mattina: Esplora La Valletta: Co-Cattedrale di San Giovanni, Giardini Upper Barrakka, Auberge de Castille.</li>
+                            <li>Pomeriggio: Prendi il traghetto per le Tre Città (Birgu, Senglea, Cospicua).</li>
+                            <li>Sera: Rientro a La Valletta per cena.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="URL_FOTO_GIORNO_3.jpg" alt="Foto Giorno 3">
+                        <span class="day-label">Giorno 3</span>
+                        <span class="date-label">Mercoledì 10 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Mdina e Rabat</h4>
+                        <ul>
+                            <li>Mattina: Spostamento a Mdina, la "Città Silenziosa". Visita il centro storico e la Cattedrale.</li>
+                            <li>Pomeriggio: Passeggia per Rabat e visita le Catacombe di San Paolo.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="URL_FOTO_GIORNO_4.jpg" alt="Foto Giorno 4">
+                        <span class="day-label">Giorno 4</span>
+                        <span class="date-label">Giovedì 11 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Gozo e la Laguna Blu</h4>
+                        <ul>
+                            <li>Mattina: Escursione in traghetto a Gozo. Visita la Cittadella di Victoria.</li>
+                            <li>Pomeriggio: Escursione in barca alla Laguna Blu a Comino.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="URL_FOTO_GIORNO_5.jpg" alt="Foto Giorno 5">
+                        <span class="day-label">Giorno 5</span>
+                        <span class="date-label">Venerdì 12 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Il Sud dell'Isola</h4>
+                        <ul>
+                            <li>Mattina: Visita al villaggio di pescatori di Marsaxlokk.</li>
+                            <li>Pomeriggio: Escursione in barca alla Grotta Azzurra.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="URL_FOTO_GIORNO_6.jpg" alt="Foto Giorno 6">
+                        <span class="day-label">Giorno 6</span>
+                        <span class="date-label">Sabato 13 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Relax e Shopping</h4>
+                        <ul>
+                            <li>Mattina: Giornata di relax in spiaggia.</li>
+                            <li>Pomeriggio: Shopping a Sliema o St. Julian's.</li>
+                            <li>Sera: Cena d'addio.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="URL_FOTO_GIORNO_7.jpg" alt="Foto Giorno 7">
+                        <span class="day-label">Giorno 7</span>
+                        <span class="date-label">Domenica 14 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Partenza</h4>
+                        <ul>
+                            <li>Ultima colazione e partenza.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="itinerary-2-content" style="display: none;">
+            <div class="card itinerary-card">
+                <h3 class="itinerary-title">Itinerario 2: Avventura e Natura 🌳</h3>
+                <p class="itinerary-description">Per chi cerca escursioni, scogliere e paesaggi mozzafiato.</p>
+
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="URL_FOTO_GIORNO_1.jpg" alt="Foto Giorno 1">
+                        <span class="day-label">Giorno 1</span>
+                        <span class="date-label">Lunedì 8 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Arrivo e St. Julian's</h4>
+                        <ul>
+                            <li>Mattina/Pomeriggio: Arrivo e check-in.</li>
+                            <li>Sera: Passeggiata serale e cena a St. Julian's.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="URL_FOTO_GIORNO_2.jpg" alt="Foto Giorno 2">
+                        <span class="day-label">Giorno 2</span>
+                        <span class="date-label">Martedì 9 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Gozo in Esplorazione</h4>
+                        <ul>
+                            <li>Intera giornata: Dedica l'intera giornata a Gozo. Noleggia uno scooter o un'auto per esplorare l'isola.</li>
+                            <li>Sera: Rientro a Malta.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="URL_FOTO_GIORNO_3.jpg" alt="Foto Giorno 3">
+                        <span class="day-label">Giorno 3</span>
+                        <span class="date-label">Mercoledì 10 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Comino e Laguna Blu</h4>
+                        <ul>
+                            <li>Mattina/Pomeriggio: Dedica la giornata alla Laguna Blu.</li>
+                            <li>Sera: Cena in zona.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="URL_FOTO_GIORNO_4.jpg" alt="Foto Giorno 4">
+                        <span class="day-label">Giorno 4</span>
+                        <span class="date-label">Giovedì 11 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Scogliere e Grotte</h4>
+                        <ul>
+                            <li>Mattina: Escursione in barca alla Grotta Azzurra e visita alle scogliere di Dingli.</li>
+                            <li>Pomeriggio: Visita ai Giardini di San Anton.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="URL_FOTO_GIORNO_5.jpg" alt="Foto Giorno 5">
+                        <span class="day-label">Giorno 5</span>
+                        <span class="date-label">Venerdì 12 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Escursione a piedi</h4>
+                        <ul>
+                            <li>Mattina: Escursione a piedi lungo le scogliere di St. Paul's Bay.</li>
+                            <li>Pomeriggio: Visita all'Acquario Nazionale di Malta.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="URL_FOTO_GIORNO_6.jpg" alt="Foto Giorno 6">
+                        <span class="day-label">Giorno 6</span>
+                        <span class="date-label">Sabato 13 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Templi e Relax</h4>
+                        <ul>
+                            <li>Mattina: Visita ai templi preistorici di Tarxien.</li>
+                            <li>Pomeriggio: Relax in spiaggia a Mellieħa Bay.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="URL_FOTO_GIORNO_7.jpg" alt="Foto Giorno 7">
+                        <span class="day-label">Giorno 7</span>
+                        <span class="date-label">Domenica 14 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Partenza</h4>
+                        <ul>
+                            <li>Ultima colazione e partenza.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="itinerary-3-content" style="display: none;">
+            <div class="card itinerary-card">
+                <h3 class="itinerary-title">Itinerario 3: Misto Relax e Cultura ☀️</h3>
+                <p class="itinerary-description">Una combinazione bilanciata per godersi le spiagge e la storia di Malta.</p>
+
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="URL_FOTO_GIORNO_1.jpg" alt="Foto Giorno 1">
+                        <span class="day-label">Giorno 1</span>
+                        <span class="date-label">Lunedì 8 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Arrivo e La Valletta</h4>
+                        <ul>
+                            <li>Mattina/Pomeriggio: Arrivo e check-in.</li>
+                            <li>Sera: Passeggiata serale a La Valletta.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="URL_FOTO_GIORNO_2.jpg" alt="Foto Giorno 2">
+                        <span class="day-label">Giorno 2</span>
+                        <span class="date-label">Martedì 9 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Mdina e Rabat</h4>
+                        <ul>
+                            <li>Intera giornata: Esplora Mdina e Rabat, con calma e senza fretta.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="URL_FOTO_GIORNO_3.jpg" alt="Foto Giorno 3">
+                        <span class="day-label">Giorno 3</span>
+                        <span class="date-label">Mercoledì 10 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>La Valletta e le Tre Città</h4>
+                        <ul>
+                            <li>Mattina: Visita le attrazioni principali di La Valletta.</li>
+                            <li>Pomeriggio: Prendi il traghetto per le Tre Città.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="URL_FOTO_GIORNO_4.jpg" alt="Foto Giorno 4">
+                        <span class="day-label">Giorno 4</span>
+                        <span class="date-label">Giovedì 11 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Gozo</h4>
+                        <ul>
+                            <li>Intera giornata: Escursione a Gozo.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="URL_FOTO_GIORNO_5.jpg" alt="Foto Giorno 5">
+                        <span class="day-label">Giorno 5</span>
+                        <span class="date-label">Venerdì 12 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Laguna Blu</h4>
+                        <ul>
+                            <li>Intera giornata: Dedica la giornata a Comino, godendoti il sole e il mare.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="URL_FOTO_GIORNO_6.jpg" alt="Foto Giorno 6">
+                        <span class="day-label">Giorno 6</span>
+                        <span class="date-label">Sabato 13 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Spiaggia e Villaggio</h4>
+                        <ul>
+                            <li>Mattina: Rilassati in spiaggia.</li>
+                            <li>Pomeriggio: Visita il villaggio di pescatori di Marsaxlokk.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="URL_FOTO_GIORNO_7.jpg" alt="Foto Giorno 7">
+                        <span class="day-label">Giorno 7</span>
+                        <span class="date-label">Domenica 14 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Partenza</h4>
+                        <ul>
+                            <li>Partenza.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Progetto Malta Trip - Anno 2025</p>
+    </footer>
+
+    <script>// Funzione per mostrare un itinerario specifico e nascondere la selezione
+function showItinerary(itineraryId) {
+    // Nasconde la sezione di introduzione con i bottoni
+    document.getElementById('itinerary-intro').style.display = 'none';
+    
+    // Svuota il contenitore dei dettagli e inserisce il contenuto dell'itinerario selezionato
+    const detailsContainer = document.getElementById('itinerary-content');
+    detailsContainer.innerHTML = document.getElementById(itineraryId + '-content').innerHTML;
+
+    // Mostra la sezione dei dettagli dell'itinerario
+    document.getElementById('itinerary-details').style.display = 'block';
+}
+
+// Funzione per tornare alla selezione degli itinerari
+function showIntro() {
+    // Nasconde la sezione dei dettagli
+    document.getElementById('itinerary-details').style.display = 'none';
+
+    // Mostra la sezione di introduzione con i bottoni
+    document.getElementById('itinerary-intro').style.display = 'block';
+}
+
+// Aggiunge un "ascoltatore di eventi" a tutti i bottoni degli itinerari
+document.addEventListener('DOMContentLoaded', () => {
+    const itineraryButtons = document.querySelectorAll('.itinerary-btn');
+    itineraryButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const itineraryToShow = event.target.getAttribute('data-itinerary');
+            showItinerary(itineraryToShow);
+        });
+    });
+});</script>
+    <script src="script.js"></script>
+
+</body>
+</html>

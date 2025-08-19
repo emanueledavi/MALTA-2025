@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malta Trip</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+        <h1 class="app-title">Malta Trip</h1>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="itinerari.html">Itinerari</a></li>
+                <li><a href="organizzazione.html">Organizzazione</a></li>
+                <li><a href="documenti.html">Documenti</a></li>
+                <li><a href="informazioni-utili.html">Info Utili</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="container" id="content">
+        <section id="home-page" class="page-section">
+            <div class="countdown-container">
+                <div class="countdown-card">
+                    <span id="days" class="countdown-number">00</span>
+                    <span class="countdown-label">Giorni</span>
+                </div>
+                <div class="countdown-card">
+                    <span id="hours" class="countdown-number">00</span>
+                    <span class="countdown-label">Ore</span>
+                </div>
+                <div class="countdown-card">
+                    <span id="minutes" class="countdown-number">00</span>
+                    <span class="countdown-label">Minuti</span>
+                </div>
+                <div class="countdown-card">
+                    <span id="seconds" class="countdown-number">00</span>
+                    <span class="countdown-label">Secondi</span>
+                </div>
+            </div>
+
+<div class="card weather-card">
+  <h3 class="section-title">Meteo a Malta</h3>
+  <div id="weather-info" class="weather-content">
+      </div>
+</div>
+
+            <div class="card info-hub-buttons">
+              <a href="itinerari.html" class="btn">
+                <i class="fas fa-map-marked-alt"></i> Il Mio Itinerario
+              </a>
+              <a href="organizzazione.html" class="btn">
+                <i class="fas fa-suitcase-rolling"></i> Organizzazione
+              </a>
+              <a href="documenti.html" class="btn">
+                <i class="fas fa-suitcase-rolling"></i> Documenti
+              </a>
+              <a href="informazioni-utili.html" class="btn">
+                <i class="fas fa-info-circle"></i> Info Utili
+              </a>
+            </div>
+
+            <div class="card photo-card">
+              <h3 class="card-title">Ispirazione per il viaggio</h3>
+                <div class="gallery-grid" id="gallery-grid">
+                  <a href="blue-lagoon.html"><img src="Blue-Lagoon-Comino-Malta-2.jpg" alt="Blue Lagoon, Comino" class="gallery-photo"></a>
+                  <a href="mdina.html"><img src="mdina.jpg" alt="Città silente di Mdina" class="gallery-photo"></a>
+                  <a href="la-valletta.html"><img src="lavalletta.jpg" alt="La Valletta, capitale" class="gallery-photo"></a>
+                  <a href="barrakka.html"><img src="giardinibarrakka.jpg" alt="Giardini Barrakka" class="gallery-photo"></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Malta Trip App</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

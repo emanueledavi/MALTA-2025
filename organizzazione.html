@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizzazione Viaggio - Malta Trip</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .info-list li {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 0.7rem;
+        }
+        .info-list li strong {
+            color: var(--primary-color);
+        }
+        .info-list .sub-list {
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+        .info-list .sub-list li {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            background-color: transparent;
+            border-left: none;
+            padding: 0;
+        }
+        .timetable-note {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.9em;
+            background-color: white;
+            box-shadow: var(--card-shadow);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Nuove regole per l'effetto a tendina */
+        .collapsible-header {
+            cursor: pointer;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            background-color: #f7f7f7;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .collapsible-header:hover {
+            background-color: #eaeaea;
+        }
+        
+        .collapsible-header h4 {
+            margin: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .collapsible-header h4 i {
+            margin-right: 10px;
+        }
+
+        .collapsible-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .collapsible-header.active .collapsible-icon {
+            transform: rotate(180deg);
+        }
+
+        .collapsible-content {
+            display: none; /* Nasconde il contenuto per impostazione predefinita */
+            padding: 10px;
+            background-color: #fff;
+            border-left: 3px solid var(--secondary-color);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-content">
+        <h1 class="app-title">Malta Trip</h1>
+            <ul class="nav-links">
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="itinerari.html">Itinerari</a></li>
+                <li><a href="organizzazione.html" class="active">Organizzazione</a></li>
+                <li><a href="documenti.html">Documenti</a></li>
+                <li><a href="informazioni-utili.html">Info Utili</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="page-section" id="info-intro">
+            <h2 class="section-title">Organizzazione del Viaggio ✈️</h2>
+            <p class="section-subtitle">
+                Tutto ciò che serve per pianificare il tuo viaggio a Malta, dai trasporti ai consigli pratici.
+            </p>
+
+            <div class="info-hub-buttons">
+                <a href="#" class="btn info-btn" data-page="consigli">
+                    <i class="fas fa-lightbulb"></i> Consigli Utili
+                </a>
+                <a href="#" class="btn info-btn" data-page="cosa-vedere">
+                    <i class="fas fa-map-marked-alt"></i> Cose da Vedere
+                </a>
+                <a href="#" class="btn info-btn" data-page="trasporti">
+                    <i class="fas fa-bus"></i> Trasporti
+                </a>
+                <a href="#" class="btn info-btn" data-page="altre-info">
+                    <i class="fas fa-info-circle"></i> Altre Informazioni
+                </a>
+            </div>
+
+            <div id="consigli-content" class="info-content-page card" style="display:none;">
+                <button class="btn back-btn" onclick="showIntro()"><i class="fas fa-arrow-left"></i> Torna</button>
+                <h3 class="card-title">Consigli Utili</h3>
+                <p>Ecco alcuni consigli utili per il tuo viaggio a Malta, raccolti da una fonte online.</p>
+                <ul class="info-list">
+                    <li>
+                        <strong>Salute e Assicurazione</strong>
+                        <ul class="sub-list">
+                            <li>Prima di partire, richiedi la Tessera Europea di Assicurazione Malattia (TEAM) o la Global Health Insurance Card (GHIC) per i cittadini del Regno Unito, con almeno 15 giorni di anticipo.</li>
+                            <li>Questa tessera copre il 100% dei costi di ospedalizzazione pubblica, ma non sostituisce un'assicurazione di viaggio privata.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Alloggio e Prenotazioni</strong>
+                        <ul class="sub-list">
+                            <li>Per prenotare l'alloggio, usa piattaforme online come Booking o Expedia, che offrono maggiore sicurezza e garanzie rispetto alla prenotazione diretta.</li>
+                            <li>Se prenoti un appartamento, scatta foto al tuo arrivo per evitare problemi con la caparra.</li>
+                            <li>È consigliabile pianificare e prenotare in anticipo le visite alle attrazioni più popolari, che possono esaurirsi rapidamente.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Denaro e Pagamenti</strong>
+                        <ul class="sub-list">
+                            <li>Usa una carta di credito senza commissioni per le transazioni estere.</li>
+                            <li>Preleva solo dagli sportelli bancomat di HSBC o BOV per evitare commissioni elevate.</li>
+                            <li>Tieni sempre con te dei contanti per piccole spese.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Cosa Mettere in Valigia</strong>
+                        <ul class="sub-list">
+                            <li>Porta un adattatore a tre poli di tipo inglese.</li>
+                            <li>Non dimenticare scarpe da scoglio, occhiali da sole, crema solare con SPF 50+ e un cappello.</li>
+                            <li>Se viaggi in inverno, porta un anorak o una giacca a vento.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Acqua e Sicurezza</strong>
+                        <ul class="sub-list">
+                            <li>L'acqua del rubinetto non ha un buon sapore e potrebbe causare problemi di stomaco, quindi è consigliabile bere acqua in bottiglia.</li>
+                            <li>Fai attenzione ai tuoi effetti personali nelle zone di vita notturna come Paceville e Bugibba.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Comportamento</strong>
+                        <ul class="sub-list">
+                            <li>Rispetta le usanze locali, in particolare la tradizione cattolica.</li>
+                            <li>Evita argomenti sensibili come la politica nelle conversazioni con la gente del posto.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="cosa-vedere-content" class="info-content-page card" style="display:none;">
+                <button class="btn back-btn" onclick="showIntro()"><i class="fas fa-arrow-left"></i> Torna</button>
+                <h3 class="card-title">Cose da Vedere</h3>
+                
+                <div class="collapsible-container">
+                    <div class="collapsible-header">
+                        <h4><i class="fas fa-landmark"></i> Attrazioni Principali</h4>
+                        <i class="fas fa-chevron-down collapsible-icon"></i>
+                    </div>
+                    <div class="collapsible-content">
+                        <ul class="info-list sub-list">
+                            <li>Valletta</li>
+                            <li>Mdina</li>
+                            <li>Gozo</li>
+                            <li>Comino (Blue Lagoon)</li>
+                            <li>St. Peter's Pool</li>
+                            <li>Spiagge sabbiose (Golden Bay, Għadira Bay)</li>
+                        </ul>
+                    </div>
+
+                    <div class="collapsible-header">
+                        <h4><i class="fas fa-mountain"></i> Altre Mete Interessanti</h4>
+                        <i class="fas fa-chevron-down collapsible-icon"></i>
+                    </div>
+                    <div class="collapsible-content">
+                        <ul class="info-list sub-list">
+                            <li>Le Tre Città: Vittoriosa, Senglea, Cospicua</li>
+                            <li>Dingli Cliffs: scogliere panoramiche</li>
+                            <li>Marsaxlokk: villaggio di pescatori con mercato domenicale</li>
+                            <li>Popeye Village: ex set cinematografico</li>
+                            <li>Hypogeum di Hal Saflieni: sito UNESCO (prenotazione con largo anticipo)</li>
+                            <li>Templi Megalitici: Hagar Qim, Mnajdra, Tarxien</li>
+                            <li>Ghar Dalam Cave: resti archeologici e animali preistorici</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="collapsible-header">
+                        <h4><i class="fas fa-ship"></i> Attività Extra</h4>
+                        <i class="fas fa-chevron-down collapsible-icon"></i>
+                    </div>
+                    <div class="collapsible-content">
+                        <ul class="info-list sub-list">
+                            <li>Snorkeling e immersioni: acque cristalline, grotte, relitti.</li>
+                            <li>Tour in barca: esplorazione della costa.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="collapsible-header">
+                        <h4><i class="fas fa-sun"></i> Spiagge da Fare</h4>
+                        <i class="fas fa-chevron-down collapsible-icon"></i>
+                    </div>
+                    <div class="collapsible-content">
+                        <ul class="info-list sub-list">
+                            <li>Imgiebah Bay</li>
+                            <li>Sliema Beach</li>
+                            <li>St. Peter Pool e Il-Kalanka</li>
+                            <li>Gnejna e Qarraba Bay</li>
+                            <li>Blue Lagoon</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="trasporti-content" class="info-content-page card" style="display:none;">
+                <button class="btn back-btn" onclick="showIntro()"><i class="fas fa-arrow-left"></i> Torna</button>
+                <h3 class="card-title">Trasporti</h3>
+                
+                <h4>Linea TD3: Aeroporto -> Sliema (Gżira)</h4>
+                <p><strong>Operatore:</strong> Malta Public Transport</p>
+                <p><strong>Prezzo del biglietto:</strong> Circa 3€ a tratta.</p>
+
+                <p><strong>Orari di Partenza dall'Aeroporto:</strong></p>
+                <p class="timetable-note">Orari di partenza della linea TD3 dall'Aeroporto per Sliema/Gżira, tutti i giorni.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fermata</th>
+                            <th>Orari</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Aeroporto</td>
+                            <td>05:15, 05:45, 06:15, 06:45, 07:15, 07:45, 08:15, 08:45, 09:15, 09:45, 10:15, 10:45, 11:15, 11:45, 12:15, 12:45, 13:15, 13:45, 14:15, 14:45, 15:15, 15:45, 16:15, 16:45, 17:15, 17:45, 18:15, 18:45, 19:15, 19:45, 20:15, 20:45, 21:15, 21:45, 22:15, 22:45, 23:15, 23:45, 00:15, 00:45</td>
+                        </tr>
+                        <tr>
+                            <td>Ferries 3 (Sliema/Gżira)</td>
+                            <td>05:58, 06:28, 06:58, 07:28, 07:58, 08:28, 08:58, 09:28, 09:58, 10:28, 10:58, 11:28, 11:58, 12:28, 12:58, 13:28, 13:58, 14:28, 14:58, 15:28, 15:58, 16:28, 16:58, 17:28, 17:58, 18:28, 18:58, 19:28, 19:58, 20:28, 20:58, 21:28, 21:58, 22:28, 22:58, 23:28, 23:58, 00:28, 00:58</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Servizi di Ride-Hailing (Taxi Privati) 🚕</h4>
+                <p>Le app per chiamare un'auto privata sono un'alternativa molto comoda ai bus, soprattutto per spostarsi di sera o per tragitti diretti.</p>
+                <ul class="info-list sub-list">
+                    <li>
+                        <strong>Bolt:</strong> È il servizio più diffuso a Malta, noto per la sua disponibilità e i prezzi competitivi. Spesso è considerato l'opzione più economica e veloce per spostarsi in aree urbane.
+                    </li>
+                    <li>
+                        <strong>eCabs:</strong> Un servizio locale molto affidabile, con una flotta di auto ben curata. L'app è intuitiva e offre anche opzioni per gruppi più numerosi o per persone con mobilità ridotta.
+                    </li>
+                    <li>
+                        <strong>Uber:</strong> Anche Uber è presente a Malta, offrendo un'ulteriore opzione. Tuttavia, la sua diffusione potrebbe essere meno capillare rispetto a Bolt e eCabs in alcune zone.
+                    </li>
+                </ul>
+                <p class="timetable-note">Per utilizzare questi servizi è necessario scaricare le rispettive app e, nella maggior parte dei casi, è richiesto il pagamento tramite carta di credito.</p>
+            </div>
+            
+            <div id="altre-info-content" class="info-content-page card" style="display:none;">
+                <button class="btn back-btn" onclick="showIntro()"><i class="fas fa-arrow-left"></i> Torna</button>
+                <h3 class="card-title">Altre Informazioni Utili</h3>
+                <ul class="info-list">
+                    <li>
+                        <strong>Aspetti Culturali e Sociali:</strong>
+                        <ul class="sub-list">
+                            <li>Malta è un paese profondamente cattolico, con molte chiese e "festas" religiose.</li>
+                            <li>I maltesi sono cordiali, e frasi come "grazz(i)" (grazie) o "jekk jogħġbok" (per favore) sono ben viste.</li>
+                            <li>Sliema è una zona tranquilla, mentre St. Julian's è il cuore della vita notturna.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Praticità Quotidiana:</strong>
+                        <ul class="sub-list">
+                            <li>L'acqua del rubinetto è potabile, ma ha un sapore particolare e potrebbe causare problemi di stomaco.</li>
+                            <li>I bagni pubblici sono variabili in termini di pulizia.</li>
+                            <li>I negozi aprono solitamente alle 9:00 e chiudono tra le 19:00 e le 20:00, con una pausa pranzo. I centri commerciali, invece, hanno orario continuato.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Sicurezza:</strong>
+                        <ul class="sub-list">
+                            <li>Prestare attenzione ai bagagli nelle aree affollate come mercati o bus.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Numeri Utili:</strong>
+                        <ul class="sub-list">
+                            <li>Emergenze (Polizia, Ambulanze, Vigili del fuoco): 112</li>
+                            <li>Polizia: (+356) 2122 4001</li>
+                            <li>Ospedale Mater Dei: (+356) 2545 0000</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <p>Progetto Malta Trip - Anno 2025</p>
+    </footer>
+
+    <script>
+        // Funzione per mostrare un contenuto specifico e nascondere i pulsanti
+        function showInfoPage(pageId) {
+            // Nasconde tutti i contenuti informativi
+            const allInfoPages = document.querySelectorAll('.info-content-page');
+            allInfoPages.forEach(page => {
+                page.style.display = 'none';
+            });
+
+            // Nasconde i pulsanti principali
+            const buttonsContainer = document.querySelector('.info-hub-buttons');
+            if (buttonsContainer) {
+                buttonsContainer.style.display = 'none';
+            }
+
+            // Mostra il contenuto della pagina selezionata
+            const selectedPage = document.getElementById(pageId + '-content');
+            if (selectedPage) {
+                selectedPage.style.display = 'block';
+            }
+        }
+
+        // Funzione per tornare alla schermata principale dei pulsanti
+        function showIntro() {
+            // Nasconde tutti i contenuti informativi
+            const allInfoPages = document.querySelectorAll('.info-content-page');
+            allInfoPages.forEach(page => {
+                page.style.display = 'none';
+            });
+
+            // Mostra i pulsanti principali
+            const buttonsContainer = document.querySelector('.info-hub-buttons');
+            if (buttonsContainer) {
+                buttonsContainer.style.display = 'flex';
+            }
+        }
+
+        // Gestione dell'effetto a fisarmonica
+        document.addEventListener('DOMContentLoaded', () => {
+            // Gestione dei bottoni nella pagina organizzazione.html
+            const infoButtons = document.querySelectorAll('.info-btn');
+            infoButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    event.preventDefault(); // Previene il comportamento predefinito del link
+                    const pageToShow = event.currentTarget.getAttribute('data-page');
+                    showInfoPage(pageToShow);
+                });
+            });
+
+            // Gestione del menu a tendina
+            const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+            collapsibleHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const icon = header.querySelector('.collapsible-icon');
+
+                    if (content.style.display === 'block') {
+                        content.style.display = 'none';
+                        header.classList.remove('active');
+                    } else {
+                        content.style.display = 'block';
+                        header.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
