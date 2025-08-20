@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informazioni Utili - Malta Trip</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .info-hub-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .btn.info-btn {
+            width: 100%;
+            max-width: 300px;
+            padding: 20px;
+            font-size: 1.1em;
+            text-align: left;
+            border-radius: 10px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .btn.info-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        .btn.info-btn i {
+            margin-right: 15px;
+            font-size: 1.5em;
+        }
+        .info-content-page {
+            display: none;
+            margin-top: 20px;
+        }
+        .back-btn {
+            margin-bottom: 20px;
+        }
+        .info-list li {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 0.7rem;
+        }
+        .info-list .sub-list {
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+        .info-list .sub-list li {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            background-color: transparent;
+            border-left: none;
+            padding: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.9em;
+            background-color: white;
+            box-shadow: var(--card-shadow);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+   <header class="header">
+    <div class="header-content">
+        <h1 class="app-title">Malta Trip</h1>
+        <button class="hamburger-menu" aria-label="Apri menu">☰</button>
+        <div class="nav-links-container">
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="itinerary.html" class="nav-link">Itinerari</a></li>
+                <li><a href="organization.html" class="nav-link">Organizzazione</a></li>
+                <li><a href="documents.html" class="nav-link">Documenti</a></li>
+                <li><a href="info.html" class="nav-link active">Info Utili</a></li>
+            </ul>
+        <button class="close-menu" aria-label="Chiudi menu">X</button>    
+        </div>
+    </div>
+</header>
+
+    <main class="container">
+        <section class="page-section card">
+            <h2 class="section-title">Informazioni Utili <i class="fas fa-tools"></i></h2>
+            <p class="section-subtitle">
+                Guida rapida e schematica per avere tutto a portata di mano.
+            </p>
+
+            <div id="info-hub-buttons" class="info-hub-buttons">
+                <a href="#" class="btn info-btn" data-page="checklist">
+                    <i class="fas fa-clipboard-list"></i> Checklist Rapida
+                </a>
+                <a href="#" class="btn info-btn" data-page="app">
+                    <i class="fas fa-mobile-alt"></i> App e Link Utili
+                </a>
+                <a href="#" class="btn info-btn" data-page="numeri">
+                    <i class="fas fa-exclamation-triangle"></i> Numeri d'Emergenza
+                </a>
+                <a href="#" class="btn info-btn" data-page="trucchi">
+                    <i class="fas fa-lightbulb"></i> Piccoli Trucchi Pratici
+                </a>
+            </div>
+
+            <div id="checklist-content" class="info-content-page card" style="display:none;">
+                <button class="btn back-btn" onclick="showIntro()"><i class="fas fa-arrow-left"></i> Torna</button>
+                <h3 class="card-title">Checklist Completa per Malta</h3>
+                <ul class="info-list">
+                    <li>
+                        <strong>Documenti e Soldi:</strong>
+                        <ul class="sub-list">
+                            <li>Passaporto o Carta d'Identità (valida per l'espatrio).</li>
+                            <li>Biglietti aerei, voucher hotel e prenotazioni.</li>
+                            <li>Patente di guida (se prevedi di noleggiare un'auto).</li>
+                            <li>Tessera Sanitaria Europea (TEAM).</li>
+                            <li>Carte di credito/debito e contanti.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Abbigliamento e Accessori:</strong>
+                        <ul class="sub-list">
+                            <li>Abbigliamento leggero e traspirante per il giorno.</li>
+                            <li>Costumi da bagno e teli mare.</li>
+                            <li>Un capo più pesante (felpa, giacca leggera) per la sera.</li>
+                            <li>Scarpette da scoglio (indispensabili per molte spiagge rocciose).</li>
+                            <li>Cappello, occhiali da sole e crema solare.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Salute e Igiene:</strong>
+                        <ul class="sub-list">
+                            <li>Farmaci personali e da viaggio (antidolorifici, cerotti, disinfettante).</li>
+                            <li>Spazzolino, dentifricio, shampoo, bagnoschiuma, etc.</li>
+                            <li>Repellente per zanzare.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Tecnologia e Varia:</strong>
+                        <ul class="sub-list">
+                            <li>Adattatore per presa elettrica (tipo G, a tre poli).</li>
+                            <li>Caricabatterie e power bank.</li>
+                            <li>Macchina fotografica e schede di memoria.</li>
+                            <li>Zainetto leggero per le escursioni.</li>
+                            <li>Borraccia riutilizzabile (l'acqua del rubinetto ha un sapore particolare).</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <div id="app-content" class="info-content-page card" style="display:none;">
+                <button class="btn back-btn" onclick="showIntro()"><i class="fas fa-arrow-left"></i> Torna</button>
+                <h3 class="card-title">App e Link Utili</h3>
+                <ul class="info-list">
+                    <li><a href="https://www.publictransport.com.mt/tallinja-app/" target="_blank"><strong>Tallinja App:</strong></a> Per gli orari e i percorsi dei bus.</li>
+                    <li><a href="https://bolt.eu/" target="_blank"><strong>Bolt:</strong></a> Per i taxi privati, alternativa veloce ai bus.</li>
+                    <li><a href="https://www.google.com/maps" target="_blank"><strong>Google Maps / Maps.me:</strong></a> Per la navigazione, con l'opzione di usare le mappe offline.</li>
+                </ul>
+            </div>
+
+            <div id="numeri-content" class="info-content-page card" style="display:none;">
+                <button class="btn back-btn" onclick="showIntro()"><i class="fas fa-arrow-left"></i> Torna</button>
+                <h3 class="card-title">Numeri e Info d'Emergenza</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Servizio</th>
+                            <th>Numero di Telefono</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Emergenze (Polizia, Ambulanze, Vigili del fuoco)</td>
+                            <td>112</td>
+                        </tr>
+                        <tr>
+                            <td>Polizia</td>
+                            <td>(+356) 2122 4001</td>
+                        </tr>
+                        <tr>
+                            <td>Ospedale Principale (Mater Dei)</td>
+                            <td>(+356) 2545 0000</td>
+                        </tr>
+                        <tr>
+                            <td>Ambasciata d'Italia a Malta</td>
+                            <td>(+356) 2203 1000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="trucchi-content" class="info-content-page card" style="display:none;">
+                <button class="btn back-btn" onclick="showIntro()"><i class="fas fa-arrow-left"></i> Torna</button>
+                <h3 class="card-title">Piccoli Trucchi Pratici</h3>
+                <ul class="info-list">
+                    <li>Conviene comprare l'acqua in bottiglia grande nei supermercati.</li>
+                    <li>Sui bus, avere la Tallinja Card o monete spicce aiuta a velocizzare il servizio.</li>
+                    <li>A ristoranti e bar, il servizio non sempre è velocissimo, quindi meglio non ridursi all'ultimo.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <p>Progetto Malta Trip - Anno 2025</p>
+    </footer>
+    
+    <script>
+        // Funzione per mostrare un contenuto specifico e nascondere i pulsanti
+        function showInfoPage(pageId) {
+            const allInfoPages = document.querySelectorAll('.info-content-page');
+            allInfoPages.forEach(page => {
+                page.style.display = 'none';
+            });
+            const buttonsContainer = document.getElementById('info-hub-buttons');
+            if (buttonsContainer) {
+                buttonsContainer.style.display = 'none';
+            }
+            const selectedPage = document.getElementById(pageId + '-content');
+            if (selectedPage) {
+                selectedPage.style.display = 'block';
+            }
+        }
+        function showIntro() {
+            const allInfoPages = document.querySelectorAll('.info-content-page');
+            allInfoPages.forEach(page => {
+                page.style.display = 'none';
+            });
+            const buttonsContainer = document.getElementById('info-hub-buttons');
+            if (buttonsContainer) {
+                buttonsContainer.style.display = 'flex';
+            }
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const infoButtons = document.querySelectorAll('.info-btn');
+            infoButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const pageToShow = event.currentTarget.getAttribute('data-page');
+                    showInfoPage(pageToShow);
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerBtn = document.querySelector('.hamburger-menu');
+    const closeBtn = document.querySelector('.close-menu');
+    const navMenu = document.querySelector('.nav-links-container');
+    const body = document.body;
+
+    // Funzione per aprire il menu
+    function openMenu() {
+        navMenu.classList.add('open');
+        body.classList.add('no-scroll');
+        hamburgerBtn.style.display = 'none'; // Nasconde il pulsante hamburger
+    }
+
+    // Funzione per chiudere il menu
+    function closeMenu() {
+        navMenu.classList.remove('open');
+        body.classList.remove('no-scroll');
+        hamburgerBtn.style.display = 'block'; // Mostra il pulsante hamburger
+    }
+
+    // Aggiungi event listener ai pulsanti
+    if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', openMenu);
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeMenu);
+    }
+});
+    </script>
+</body>
+</html>

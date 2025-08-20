@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itinerari di Viaggio - Malta Trip</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+    .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+</style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-content">
+        <h1 class="app-title">Malta Trip</h1>
+        <button class="hamburger-menu" aria-label="Apri menu">☰</button>
+        <div class="nav-links-container">
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="itinerary.html" class="nav-link active">Itinerari</a></li>
+                <li><a href="organization.html" class="nav-link">Organizzazione</a></li>
+                <li><a href="documents.html" class="nav-link">Documenti</a></li>
+                <li><a href="info.html" class="nav-link">Info Utili</a></li>
+            </ul>
+        <button class="close-menu" aria-label="Chiudi menu">X</button>    
+        </div>
+    </div>
+</header>
+
+    <main class="container">
+        <section class="page-section" id="itinerary-intro">
+            <h2 class="section-title">Itinerari per il tuo viaggio</h2>
+            <p class="section-subtitle">
+                Esplora le diverse sfaccettature di Malta, Gozo e Comino. Scegli il tuo percorso ideale!
+            </p>
+            <div class="itinerary-buttons-container">
+                <button class="btn itinerary-btn" data-itinerary="itinerary-1">
+                    <i class="fas fa-archway"></i> Itinerario 1: Mare Selvaggio & Città Storiche
+                </button>
+                <button class="btn itinerary-btn" data-itinerary="itinerary-2">
+                    <i class="fas fa-hiking"></i> Itinerario 2: Spiagge Iconiche & Vita Locale
+                </button>
+                <button class="btn itinerary-btn" data-itinerary="itinerary-3">
+                    <i class="fas fa-sun"></i> Itinerario 3: Meraviglie Nascoste
+                </button>
+            </div>
+        </section>
+
+        <section class="page-section" id="itinerary-details" style="display: none;">
+            <button class="btn back-btn" onclick="showIntro()"><i class="fas fa-arrow-left"></i> Torna agli itinerari</button>
+            <div id="itinerary-content">
+                </div>
+        </section>
+
+        <div id="itinerary-1-content" style="display: none;">
+            <div class="card itinerary-card">
+                <h3 class="itinerary-title">Itinerario 1: Mare Selvaggio & Città Storiche</h3>
+                <p class="itinerary-description">Un itinerario perfetto per chi vuole alternare spiagge spettacolari e autentiche (come Imġiebaħ e Qarraba) a piccoli assaggi di cultura maltese: dalla storica Mdina alla vivace Valletta. L'equilibrio tra natura e città rende il viaggio vario ma mai troppo stancante.<br><br>Ideale per: chi ama il mare wild ma vuole anche “sentire” un po' di storia e atmosfera locale.</p>
+
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 1/atterraggio.jpg" alt="Foto Giorno 1">
+                        <span class="day-label">Giorno 1</span>
+                        <span class="date-label">Lunedì 8 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Arrivo</h4>
+                        <ul>
+                            <li>Pomeriggio/Sera: Arrivo a Malta, trasferimento in Bolt verso Sliema.</li>
+                            <li>Successivamente check-in e sistemazione nella camera.</li>
+                            <li>Sera: Passeggiata lungo la Promenade di Sliema.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 1/giorno1-sliema.jpg" alt="Foto Giorno 2">
+                        <span class="day-label">Giorno 2</span>
+                        <span class="date-label">Martedì 9 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Recupero a Sliema Beach</h4>
+                        <ul>
+                            <li>Mattina: Colazione in tranquillità e spesa.</li>
+                            <li>Pomeriggio: Sliema Beach.</li>
+                            <li>Sera: Rientro in appartamento, cena e uscita a St. Julian e Paceville.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 1/giorno4-blue-lagoon.jpg" alt="Foto Giorno 3">
+                        <span class="day-label">Giorno 3</span>
+                        <span class="date-label">Mercoledì 10 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Blue Lagoon (Comino)</h4>
+                        <ul>
+                            <li>Giornata intera: Partenza da Sliema con escursione in barca. Se possibile, visitare anche la Cittadella di Victoria a Gozo la mattina. Nel pomeriggio visitare la Blue Lagoon e fare il bagno.</li>
+                            <li>Tardo pomeriggio: Rientro a Sliema e cena.</li>
+                            <li>Sera: Uscita a La Valletta.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 1/gnejna.jpg" alt="Foto Giorno 4">
+                        <span class="day-label">Giorno 4</span>
+                        <span class="date-label">Giovedì 11 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Gnejna & Qarraba Bay</h4>
+                        <ul>
+                            <li>Giornata intera: Transfer a Gnejna Bay in mattinata. Al pomeriggio trekking fino a Qarraba Bay. Relax, sole e foto panoramiche.</li>
+                            <li>Pomeriggio/Sera: Rientro a Sliema.</li>
+                            <li>Sera: Cena e uscita.</li>
+                    </div>
+                </div>
+
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 2/peterpool.jpg" alt="Foto Giorno 5">
+                        <span class="day-label">Giorno 5</span>
+                        <span class="date-label">Venerdì 12 Settembre</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>St. Peter's Pool + Il-Kalanka</h4>
+                        <ul>
+                            <li>Mattina: Trasferimento verso St. Peter's Pool (arrivare presto).</li>
+                            <li>Pomeriggio: Trekking verso Il-Kalanka Bay, più appartata.</li>
+                            <li>Sera: Rientro a Sliema. Cena e uscita.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 1/imgiebanbay.jpg" alt="Foto Giorno 6">
+                        <span class="day-label">Giorno 6</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Imġiebaħ Bay</h4>
+                        <ul>
+                            <li>Mattina: Trasferimento alla scoperta di Imġiebaħ Bay, tra le più selvagge. Picnic consigliato (niente servizi).</li>
+                            <li>Pomeriggio: Rientro con tramonto a Mellieħa.</li>
+                            <li>Sera: Cena speciale di chiusura viaggio e uscita.</li>
+                    </div>
+                </div>
+
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 1/giorno7-partenza.jpg" alt="Foto Giorno 7">
+                        <span class="day-label">Giorno 7</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Partenza</h4>
+                        <ul>
+                            <li>Mattina: Colazione + ultimo tuffo o shopping di souvenir a Sliema.</li>
+                            <li>Pomeriggio: Pranzo più trasferimento all'aeroporto entro le 16:50 per il volo di rientro previsto per le 19:50.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <div class="itinerary-navigation">
+            <button class="btn itinerary-btn-nav right" data-itinerary="itinerary-2"> Itinerario 2 <i class="fas fa-arrow-right"></i>
+            </button> 
+        </div>     
+</div>
+
+
+        <div id="itinerary-2-content" style="display: none;">
+            <div class="card itinerary-card">
+                <h3 class="itinerary-title">Itinerario 2: Spiagge Iconiche e Vita Locale</h3>
+                <p class="itinerary-description">Tutte le spiagge che desideri, ma in un ritmo più rilassato e con tante tappe nei borghi maltesi come Marsaxlokk e Mellieħa. C'è spazio anche per escursioni classiche come la Blue Lagoon e per godersi la cucina locale con calma.<br><br>Ideale per: chi vuole un mix tra spiagge famose e giornate più “slow”, immerso nella vita quotidiana dell'isola.</p>
+
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 1/atterraggio.jpg" alt="Foto Giorno 1">
+                        <span class="day-label">Giorno 1</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Arrivo e Relax Serale</h4>
+                        <ul>
+                            <li>Sera: Arrivo all'aeroporto di Malta alle 19:45. Dopo il trasferimento e il check-in in appartamento (prevedendo di arrivare intorno alle 22:00/23:00), dedica la serata al relax. Si può optare per una cena veloce in un ristorante vicino all'appartamento o semplicemente rilassarsi dopo il viaggio. Data l'ora tarda, non sono previste attività turistiche significative.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 2/sliemabeach.jpg" alt="Foto Giorno 2">
+                        <span class="day-label">Giorno 2</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Giornata soft a Sliema</h4>
+                        <ul>
+                            <li>Mattina: Colazione in tranquillità, spesa e pranzo.</li>
+                            <li>Pomeriggio: Dopo pranzo relax nelle spiagge di Sliema.</li>
+                            <li>Sera: Rientro in appartamento. Si può considerare una cena in un ristorante di Sliema con vista sulla Valletta illuminata.</li>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 2/peterpool.jpg" alt="Foto Giorno 3">
+                        <span class="day-label">Giorno 3</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>St. Peter's Pool + Il-Kalanka</h4>
+                        <ul>
+                            <li>Mattina: Transfer per St. Peter's Pool, come prima tappa.</li>
+                            <li>Pomeriggio: Il-Kalanka Bay, più tranquilla.</li>
+                            <li>Sera: Rientro a Sliema e cena.</li>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 1/giorno4-blue-lagoon.jpg" alt="Foto Giorno 4">
+                        <span class="day-label">Giorno 4</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Escursione a Gozo e la Laguna Blu (Comino)</h4>
+                        <ul>
+                            <li>Giornata intera: Questa è la giornata dedicata all'escursione completa. Si può raggiungere Cirkewwa (punta nord di Malta) in autobus e prendere il traghetto per Gozo. A Gozo, si suggerisce di visitare la Cittadella di Victoria per ammirare i panorami a 360 gradi sull'isola e la sua storia. Si può poi scegliere di visitare una baia pittoresca come Xlendi Bay o Marsalforn Bay per un tuffo veloce. Per la Blue Lagoon, si può prendere una barca da Mgarr (Gozo) o da Cirkewwa (Malta). Si raccomanda di partire presto al mattino per godere delle acque cristalline prima che l'affluenza divenga eccessiva.<br>Consiglio extra: Per un'esperienza più autentica a Gozo, noleggia uno scooter o un quad per esplorare l'isola a tuo piacimento, visitando anche luoghi meno battuti come le saline di Xwejni o la Basilica di Ta' Pinu.</li>
+                            <li>Sera: Rientro a Sliema, cena e uscita.</li>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 2/imgiebanbay.jpg" alt="Foto Giorno 5">
+                        <span class="day-label">Giorno 5</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Imġiebaħ Bay</h4>
+                        <ul>
+                            <li>Mattina: Trasferimento a nord verso Imġiebaħ Bay</li>
+                            <li>Pomeriggio: Pranzo al sacco e verso sera ritorno a Sliema</li>
+                            <li>Sera: Cena e uscita.</li>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 2/giorno6-golden-ghajn.jpg" alt="Foto Giorno 6">
+                        <span class="day-label">Giorno 6</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Gnejna & Qarraba Bay</h4>
+                        <ul>
+                            <li>Mattina: Partenza presto per Gnejna Bay.</li>
+                            <li>Pomeriggio: Trekking verso Qarraba Bay.</li>
+                            <li>Sera: Ultima cena speciale a Sliema o nella vicina St. Julian's.</li>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 2/giorno7-partenza.jpg" alt="Foto Giorno 7">
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Mattinata Libera e Partenza</h4>
+                        <ul>
+                            <li>Mattina: Tempo libero per gli ultimi acquisti di souvenir a Sliema, una passeggiata rilassante sul lungomare, o un caffè finale.</li>
+                            <li>Pomeriggio: Trasferimento all'aeroporto per il volo di rientro previsto per le 19:50. Considera di partire dall'alloggio almeno 3 ore prima del volo per avere tempo sufficiente per il check-in e i controlli di sicurezza.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="itinerary-navigation">
+    <button class="btn itinerary-btn-nav left" data-itinerary="itinerary-1">
+        <i class="fas fa-arrow-left"></i> Itinerario 1
+    </button>
+    <button class="btn itinerary-btn-nav right" data-itinerary="itinerary-3">
+        Itinerario 3 <i class="fas fa-arrow-right"></i>
+    </button>
+</div>
+            </div>
+        </div>
+
+        <div id="itinerary-3-content" style="display: none;">
+            <div class="card itinerary-card">
+                <h3 class="itinerary-title">Itinerario 3: Esplora le Meraviglie Nascoste</h3>
+                <p class="itinerary-description">Il più esplorativo dei tre: spiagge nascoste, percorsi poco battuti e tanta natura. C'è meno città e più avventura, con un tocco finale romantico e fotografico (Mdina, Qarraba, Popeye Village). Ogni giorno è una scoperta.<br><br>Ideale per: chi ama esplorare luoghi fuori rotta e scoprire calette uniche e scorci panoramici lontani dal turismo di massa.</p>
+
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 3/arrivo.jpg" alt="Foto Giorno 1">
+                        <span class="day-label">Giorno 1</span>
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Welcome to Malta</h4>
+                        <ul>
+                            <li>Sera: Arrivo all'aeroporto di Malta alle 19:45. Dopo il trasferimento e il check-in in appartamento a Sliema (prevedendo di arrivare intorno alle 22:00/23:00), dedica la serata a rilassarti e a familiarizzare con la zona. Puoi fare una breve passeggiata lungo la Promenade di Sliema per goderti l'atmosfera serale e ammirare le luci sulla baia. Cena in uno dei ristoranti con vista mare o in un locale caratteristico nelle vie interne.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 3/sliemabeach.jpg" alt="Foto Giorno 2">
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Sliema chill</h4>
+                        <ul>
+                            <li>Mattina: Colazione in tranquillità, spesa e poi pranzo.</li>
+                            <li>Pomeriggio: Bagno nella spiagge di Sliema.</li>
+                            <li>Sera: Rientro in appartamento e cena.</li>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 2/imgiebanbay.jpg" alt="Foto Giorno 3">
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Imġiebaħ Bay</h4>
+                        <ul>
+                            <li>Mattina: Escursione a Imġiebaħ Bay e bagno.</li>
+                            <li>Pomeriggio: Pranzo al sacco e, se possibile, trasferimento a Mellieha per l'aperitivo. Altrimenti ritorno a Sliema.</li>
+                            <li>Sera: Cena e uscita.</li>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 1/gnejna.jpg" alt="Foto Giorno 4">
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Gnejna + Qarraba</h4>
+                        <ul>
+                            <li>Mattina: Partenza per Gnejna Bay</li>
+                            <li>Pomeriggio: Pranzo e breve trekking verso Qarraba Bay.</li>
+                            <li>Sera: Rientro a Sliema, cena e uscita.</li>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 3/gozo-blue-lagoon.jpg" alt="Foto Giorno 5">
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Blue Lagoon</h4>
+                        <ul>
+                            <li>Mattina: Tour in barca verso Gozo e visita della cittadina di La Victoria.</li>
+                            <li>Pomeriggio: Pranzo e trasferimento alla Blue Lagoon e bagno.</li>
+                            <li>Sera: Rientro, cena e uscita.</li>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 3/St_Peters_Pool_5.jpg" alt="Foto Giorno 6">
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>St. Peter's Pool + Il-Kalanka</h4>
+                        <ul>
+                            <li>Mattina: Trasferimento a St. Peter's Pool e bagno + tuffi.</li>
+                            <li>Pomeriggio: Pranzo e trekking verso Il-Kalanka.</li>
+                            <li>Sera: Ultima cena speciale. Puoi optare per un ristorante di pesce a Spinola Bay a St. Julian's o scegliere uno dei ristoranti a Sliema.</li>
+                    </div>
+                </div>
+                
+                <div class="itinerary-day-card">
+                    <div class="itinerary-image-panel">
+                        <img src="/foto itinerari/itinerario 3/giorno7-partenza.jpg" alt="Foto Giorno 7">
+                    </div>
+                    <div class="itinerary-content-panel">
+                        <h4>Mattinata Libera e Partenza</h4>
+                        <ul>
+                            <li>Mattina: Tempo libero per gli ultimi acquisti di souvenir a Sliema, una passeggiata rilassante sul lungomare, o un caffè finale in uno dei tanti locali con vista mare. Goditi un'ultima colazione maltese.</li>
+                            <li>Pomeriggio: Trasferimento all'aeroporto per il volo di rientro previsto per le 19:50. Considera di partire dall'alloggio almeno 3 ore prima del volo per avere tempo sufficiente per il check-in e i controlli di sicurezza.</li>
+                    </div>
+                </div>
+                <div class="itinerary-navigation">
+    <button class="btn itinerary-btn-nav left" data-itinerary="itinerary-2">
+        <i class="fas fa-arrow-left"></i> Itinerario 2
+    </button>
+</div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Progetto Malta Trip - Anno 2025</p>
+    </footer>
+    <script src="itinerary.js"></script>
+</body>
+</html>
